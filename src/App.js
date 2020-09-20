@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import Header from './components/layout/Header';
 import Todos from './components/todo/Todos';
+import AddTodo from './components/todo/AddTodo';
 import './App.css';
 
+
 class App extends Component{
+  //acting like backend/database
   state = {
     todos: [
       {
@@ -42,10 +46,15 @@ class App extends Component{
     });
   }
 
+  //render webpage/App components
   render() {
     return (
       <div className="App">
-        <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} deleteTodo={this.deleteTodo} />
+        <div className="container">
+          <Header />
+          <AddTodo />
+          <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} deleteTodo={this.deleteTodo} />
+        </div>
       </div>
     );
   }

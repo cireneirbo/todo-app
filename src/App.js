@@ -4,29 +4,19 @@ import Header from './components/layout/Header';
 import Todos from './components/todo/Todos';
 import AddTodo from './components/todo/AddTodo';
 import About from './components/pages/About';
+import axios from 'axios';
 import './App.css';
+
 
 
 class App extends Component{
   //acting like backend/database
   state = {
-    todos: [
-      {
-        id: 1,
-        title: 'Take out the trash',
-        completed: true
-      },
-      {
-        id: 2,
-        title: 'Jump on the trampoline',
-        completed: false
-      },
-      {
-        id: 3,
-        title: 'Decimate the rat infestation',
-        completed: false
-      }
-    ]
+    todos: []
+  }
+
+  componentDidMount() {
+    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10').then(response => this.setState({ todos: response.data }));
   }
 
   //toggle complete
@@ -43,22 +33,20 @@ class App extends Component{
 
   //delete todo
   deleteTodo = (id) => {
-    this.setState({ 
-      todos: [...this.state.todos.filter(todo => todo.id !== id)] 
-    });
+    axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+      .then(this.setState({ 
+        todos: [...this.state.todos.filter(todo => todo.id !== id)] 
+    }));
   }
 
   //Add todo
   addTodo = (title) => {
-    const newTodo = {
-      id: 4,
+    axios.post('https://jsonplaceholder.typicode.com/todos', {
       title: title,
       completed: false
-    }
-    this.setState({
-      todos: [...this.state.todos, newTodo]
-    })
-
+    }).then(response => this.setState({ 
+      todos: [...this.state.todos, response.data] 
+    }));
   }
 
   //render webpage/App components

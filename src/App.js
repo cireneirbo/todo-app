@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Header from './components/layout/Header';
+import Header from './components/layout/header';
 import Todos from './components/todo/Todos';
 import AddTodo from './components/todo/AddTodo';
 import About from './components/pages/About';

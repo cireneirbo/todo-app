@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function About() {
+function about() {
     return (
         <React.Fragment>
             <h1>About</h1>
@@ -14,4 +14,4 @@ const externalLinkStyle = {
     color: 'blue',
     textDecoration: 'underline'
 }
-export default About;
+export default about;

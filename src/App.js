@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/header';
 import Todos from './components/todo/Todos';
 import AddTodo from './components/todo/AddTodo';
-import Loading from './components/pages/loading';
-import About from './components/pages/About';
+import Loading from './components/auth/loading';
+import about from './components/pages/about';
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import './App.css';
@@ -74,7 +74,7 @@ class App extends Component{
                 <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} deleteTodo={this.deleteTodo} />
               </React.Fragment>
             )} />
-            <Route path="/about" component={About} />
+            <Route path="/about" component={about} />
             
           </div>
         </div>

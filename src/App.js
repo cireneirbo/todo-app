@@ -4,8 +4,10 @@ import Header from './components/layout/header';
 import Todos from './components/todo/Todos';
 import AddTodo from './components/todo/AddTodo';
 import About from './components/pages/About';
+import NavBar from './components/pages/nav-bar';
 import axios from 'axios';
 import './App.css';
+
 
 
 
@@ -58,6 +60,7 @@ class App extends Component{
             <Header />
             <Route exact path="/" render={props => (
               <React.Fragment>
+                <NavBar />
                 <AddTodo addTodo={this.addTodo} />
                 <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} deleteTodo={this.deleteTodo} />
               </React.Fragment>

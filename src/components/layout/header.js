@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavBar from '../pages/nav-bar';
 
 function Header() {
     return (
         <header style={headerStyle}>
             <h1>TODO List</h1>
             <Link style={linkStyle} to="/">Home</Link> | <Link style={linkStyle} to="/about">About</Link>
+            <NavBar />
         </header>
     )
 }

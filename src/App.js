@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/header';
 import Todos from './components/todo/Todos';
 import AddTodo from './components/todo/AddTodo';
+import Loading from './components/pages/loading';
 import About from './components/pages/About';
-import NavBar from './components/pages/nav-bar';
+import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import './App.css';
 
@@ -51,8 +52,17 @@ class App extends Component{
     }));
   }
 
+ 
+  
+
   //render webpage/App components
   render() {
+    // const { isLoading } = useAuth0();
+
+    // if (isLoading) {
+    //   return <Loading />;
+    // }
+
     return (
       <Router>
         <div className="App">
@@ -60,7 +70,6 @@ class App extends Component{
             <Header />
             <Route exact path="/" render={props => (
               <React.Fragment>
-                <NavBar />
                 <AddTodo addTodo={this.addTodo} />
                 <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} deleteTodo={this.deleteTodo} />
               </React.Fragment>

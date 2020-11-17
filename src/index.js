@@ -6,12 +6,10 @@ import Auth0ProviderWithHistory from "./components/auth/auth0-provider-with-hist
 
 
 ReactDOM.render(
-  // <React.StrictMode>
     <Router>
       <Auth0ProviderWithHistory>
         <App />
       </Auth0ProviderWithHistory>
     </Router>,
-  //{/* </React.StrictMode>, */}
   document.getElementById('root')
 );

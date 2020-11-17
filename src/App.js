@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/header';
 import Todos from './components/todo/Todos';
 import AddTodo from './components/todo/AddTodo';
-import Loading from './components/auth/loading';
 import about from './components/pages/about';
-import { useAuth0 } from '@auth0/auth0-react';
+// import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import './App.css';
 
@@ -52,17 +51,8 @@ class App extends Component{
     }));
   }
 
- 
-  
-
   //render webpage/App components
   render() {
-    // const { isLoading } = useAuth0();
-
-    // if (isLoading) {
-    //   return <Loading />;
-    // }
-
     return (
       <Router>
         <div className="App">
